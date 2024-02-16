@@ -1,0 +1,117 @@
+{% extends "base.html.twig" %}
+
+{% block title %}terevoir - Visites{% endblock %}
+
+
+{% block body %}
+
+
+    <style>
+        :root {
+            --color-special: rgb(0, 212, 177);
+            --color-lightspecial: rgb(163, 201, 195);
+            --color-special-hover: rgb(0, 179, 149);
+            --color-grey: rgb(150, 150, 150);
+            --color-lightgrey: rgb(185, 185, 185);
+            --color-verylightgrey: rgb(245, 245, 245);
+            
+        }
+        .visit {
+            margin: 20px auto;
+            padding: 0 20px;
+            max-width: 1200px;
+        }
+        .visit-header {
+            margin: 20px 0;
+        }
+        .visit-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        h2 {
+            text-align: center;
+            margin: 5px 0;
+        }
+        .table {
+            border: solid 1px var(--color-verylightgrey);
+            border-collapse: collapse;
+        }
+        .table thead {
+            background-color: var(--color-special);
+            color: #FFF;
+            height: 50px;
+        }
+        td, th {
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .table tr:nth-child(2n) {
+            background-color: var(--color-verylightgrey);
+        }
+        .tr-special {
+            color: var(--color-special);
+            font-weight: 600;
+        }
+    </style>
+
+    <div class="visit">
+        <div class="visit-header">
+            <div class="visit-row">
+                <h2>Pages visitées traquées uniques : {{ uniq_visits_count }}</h2>
+                <h2>Visiteurs traqués uniques : {{ uniq_visitors_count }}</h2>
+            </div>
+            <div class="visit-row">
+                <h2>Total pages visitées : {{ visits_count }}</h2>
+                <h2>Total visiteurs : {{ visitors_count }}</h2>
+            </div>
+        </div>
+        <div class="visit-row">
+            <p>Affichage des 200 dernières lignes</p>
+        </div>
+        <div class="visit-row">
+            <div class="visit-col">
+                <h2>Visites</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>date</th>
+                            <th>page</th>
+                            <th>id visiteur</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for visit in visits %}
+                            <tr>
+                                <td>{{ visit.visitedAt | date_formater }}</td>
+                                <td>{{ visit.page }}</td>
+                                <td>{{ visit.visitor.token | excerpt(10) }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="visit-col">
+                <h2>Visiteurs</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>nb pages visitées</th>
+                            <th>traqué ?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for visitor in visitors %}
+                            <tr{{ visitor.tracked ? (' class="tr-special"'): '' }}>
+                                <td>{{ visitor.token | excerpt(10) }}</td>
+                                <td>{{ visitor.visits | length }}</td>
+                                <td>{{ visitor.tracked ? 'oui': 'non' }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

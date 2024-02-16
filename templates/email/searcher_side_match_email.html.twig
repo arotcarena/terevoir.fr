@@ -1,0 +1,19 @@
+<p style="font-size: 1.5em">Félicitations, {{ receiverFirstName }} !</p>
+<br>
+<p style="font-size: 1.2em;">Vous venez de retrouver <strong>{{ searchFirstName }}</strong>, qui avait déjà essayé de vous retrouver via notre site.</p>
+<br>
+<p>Voici ses coordonnées :</p>
+<ul style="font-weight: 600;">
+    <li>adresse email : {{ email }}</li>
+    <li>téléphone : {{ phone }}</li>
+</ul>
+{% if message is not null %}
+<br>
+<p>Voici le message laissé pour vous :</p>
+<p style="font-weight: 600;">{{ message }}</p>
+{% endif %}
+
+<br>
+<p>Maintenant, à vous de jouer...</p>
+<p>Toute l'équipe de <a href="https://terevoir.fr">terevoir.fr</a> vous souhaite de belles retrouvailles !</p>
+ 

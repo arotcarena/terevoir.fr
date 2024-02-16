@@ -1,0 +1,22 @@
+<br>
+<p style="font-size: 1.2em">{{ receiverFirstName }}, votre recherche a bien été sauvegardée dans notre base de données !</p>
+<br>
+<p>Dès que <strong>{{ searchFirstName }}</strong> essaiera à son tour de vous retrouver, nous vous enverrons un email pour vous en informer, et lui transmettrons vos coordonnées.</p>
+
+{% if message is not null %}
+<br>
+<p>Voici le message que vous lui avez laissé :</p>
+<p style="font-weight: 600;">
+    {{ message }}
+</p>
+<br>
+{% endif %}
+
+<p>
+    Tant qu'il/elle n'aura pas tenté de vous retrouver, <strong>{{ searchFirstName }}</strong> n'aura aucun moyen de savoir que vous l'avez recherché(e){% if message is not null %} et ne pourra pas voir votre message{% endif %}.
+</p>
+
+
+<br>
+<p>Toute l'équipe de <a href="https://terevoir.fr">terevoir.fr</a> vous souhaite de proches retrouvailles !</p>
+ 

@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+
+
+{% block meta %}
+    <link rel="canonical" href="https://www.terevoir.fr">
+
+    <meta property="og:title" content="Te revoir">
+    <meta property="og:url" content="https://www.terevoir.fr">
+    <meta property="og:description" content="Vous souhaitez renouer avec quelqu'un mais avant vous voudriez savoir si c'est réciproque ? C'est le service proposé par terevoir.fr. La recherche se fait en 1 min et sans créer de compte.">
+    <meta name="description" content="Vous souhaitez renouer avec quelqu'un mais avant vous voudriez savoir si c'est réciproque ? C'est le service proposé par terevoir.fr. La recherche se fait en 1 min et sans créer de compte.">
+{% endblock %}
+
+
+{% block body %}
+   <div class="home">
+        <main class="home-top">
+            <div class="punchline-container">
+                <h1 class="punchline">Envie de renouer avec quelqu'un ? Faites une recherche et découvrez si c'est réciproque</h1>
+                <p class="sub-punchline">La personne que vous recherchez n'en sera informée que si elle vous a aussi recherché</p>
+            </div>
+            <div class="main-button-container">
+                <a class="main-button icon-left" data-controller="button" href={{ path('search') }}>
+                    <svg class="icon i-left i-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" aria-hidden="true" focusable="false">
+                        <path fill="currentColor" d="M796 935 533 672q-30 26-69.959 40.5T378 727q-108.162 0-183.081-75Q120 577 120 471t75-181q75-75 181.5-75t181 75Q632 365 632 471.15 632 514 618 554q-14 40-42 75l264 262-44 44ZM377 667q81.25 0 138.125-57.5T572 471q0-81-56.875-138.5T377 275q-82.083 0-139.542 57.5Q180 390 180 471t57.458 138.5Q294.917 667 377 667Z"/>
+                    </svg>
+                    <svg class="icon i-left i-loader" xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" role="status" aria-label="Chargement en cours" aria-busy="true">
+                        <path fill="currentColor" stroke="currentColor" d="M480 896q-133 0-226.5-93.5T160 576q0-133 93.5-226.5T480 256q85 0 149 34.5T740 385V256h60v254H546v-60h168q-38-60-97-97t-137-37q-109 0-184.5 75.5T220 576q0 109 75.5 184.5T480 836q83 0 152-47.5T728 663h62q-29 105-115 169t-195 64Z"/>
+                    </svg>
+                    <span>Rechercher</span>
+                </a>
+                <p class="pub icon-left">
+                    <svg class="icon i-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" aria-hidden="true" focusable="false">
+                        <path fill="currentColor" d="M360 196v-60h240v60H360Zm90 447h60V413h-60v230Zm30 332q-74 0-139.5-28.5T226 869q-49-49-77.5-114.5T120 615q0-74 28.5-139.5T226 361q49-49 114.5-77.5T480 255q67 0 126 22.5T711 340l51-51 42 42-51 51q36 40 61.5 97T840 615q0 74-28.5 139.5T734 869q-49 49-114.5 77.5T480 975Zm0-60q125 0 212.5-87.5T780 615q0-125-87.5-212.5T480 315q-125 0-212.5 87.5T180 615q0 125 87.5 212.5T480 915Zm0-299Z"/>
+                    </svg>
+                    <span>en 1 min et sans créer de compte</span>
+                </p>
+            </div>
+            
+        </main>
+   </div>
+{% endblock %}
